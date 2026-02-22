@@ -1,4 +1,4 @@
-/* ===== VARIABLES ===== */
+﻿/* ===== VARIABLES ===== */
 :root {
   --p1: #7c3aed;
   --p2: #ec4899;
@@ -283,3 +283,5 @@ ul { list-style: none; }
   .hgw-categorias { grid-template-columns: repeat(2, 1fr); }
   .fecha-row { grid-template-columns: 1fr; }
 }
+.nav-logo-top .logo-img { width: 54px; height: 54px; }
+
