@@ -89,10 +89,10 @@ ul { list-style: none; }
   background: linear-gradient(180deg, rgba(6,4,15,0.72) 0%, rgba(6,4,15,0.9) 100%);
 }
 .hero-slide-image {
-  background-image: url('imagenes/WhatsApp Image 2026-02-23 at 12.17.44.jpeg');
+  background-image: url('imagenes/ChatGPT Image 23 feb 2026, 14_23_02.png');
 }
 .hero-slide-fibra {
-  background-image: url('imagenes/WhatsApp Image 2026-02-23 at 13.01.31.jpeg');
+  background-image: url('imagenes/ChatGPT Image 23 feb 2026, 14_23_10.png');
 }
 .hero-panel {
   min-height: 88vh;
@@ -349,6 +349,8 @@ ul { list-style: none; }
 @media (max-width: 1024px) {
   .hero { min-height: 76vh; padding-top: 78px; }
   .hero-panel { min-height: 76vh; flex-direction: column; text-align: center; padding-top: 90px; }
+  .hero-slide-image { background-image: url('imagenes/ChatGPT Image 23 feb 2026, 14_22_47.png'); }
+  .hero-slide-fibra { background-image: url('imagenes/ChatGPT Image 23 feb 2026, 14_23_06.png'); }
   .hero-sub { margin: 0 auto 36px; }
   .hero-btns { justify-content: center; }
   .hero-stats { justify-content: center; }
@@ -377,7 +379,11 @@ ul { list-style: none; }
   .hgw-categorias { grid-template-columns: repeat(2, 1fr); }
   .fecha-row { grid-template-columns: 1fr; }
 }
-.nav-logo-top .logo-img { width: 54px; height: 54px; }
+.nav-logo-top .logo-img {
+  width: 34px;
+  height: 34px;
+  mix-blend-mode: screen;
+}
 
 
 .pago-note-title { display: block; width: 100%; margin-top: 4px; font-size: 0.78rem; font-weight: 600; color: #fda4af; }
@@ -388,5 +394,10 @@ ul { list-style: none; }
 
 
 .stream-logo { width: 56px; height: 56px; object-fit: cover; border-radius: 12px; display: block; max-width: none; }
+
+
+
+.hgw-offer { margin: 14px auto 0; width: fit-content; max-width: 100%; display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.35); color: #34d399; font-size: 0.86rem; font-weight: 700; }
+.hgw-offer i { font-size: 0.8rem; }
 
 

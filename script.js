@@ -19,22 +19,64 @@ const heroTrack = document.getElementById('heroTrack');
 const heroPrev = document.getElementById('heroPrev');
 const heroNext = document.getElementById('heroNext');
 if (heroTrack && heroTrack.children.length > 1) {
+  // Infinite loop without visible jump:
+  // append a clone of the first slide and reset position after reaching it.
+  const firstClone = heroTrack.children[0].cloneNode(true);
+  heroTrack.appendChild(firstClone);
+
   let currentSlide = 0;
-  const totalSlides = heroTrack.children.length;
-  const moveToSlide = (index) => {
-    currentSlide = (index + totalSlides) % totalSlides;
-    heroTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+  const realSlides = heroTrack.children.length - 1;
+  let isAnimating = false;
+
+  const applyTransform = (index, withTransition = true) => {
+    heroTrack.style.transition = withTransition ? 'transform 0.8s ease' : 'none';
+    heroTrack.style.transform = `translateX(-${index * 100}%)`;
+  };
+
+  const moveToNext = () => {
+    if (isAnimating) return;
+    isAnimating = true;
+    currentSlide += 1;
+    applyTransform(currentSlide, true);
+  };
+
+  const moveToPrev = () => {
+    if (isAnimating) return;
+    isAnimating = true;
+    if (currentSlide === 0) {
+      // Jump to cloned-end position without transition, then animate one step back.
+      currentSlide = realSlides;
+      applyTransform(currentSlide, false);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          currentSlide -= 1;
+          applyTransform(currentSlide, true);
+        });
+      });
+      return;
+    }
+    currentSlide -= 1;
+    applyTransform(currentSlide, true);
   };
 
   if (heroPrev) {
-    heroPrev.addEventListener('click', () => moveToSlide(currentSlide - 1));
+    heroPrev.addEventListener('click', moveToPrev);
   }
   if (heroNext) {
-    heroNext.addEventListener('click', () => moveToSlide(currentSlide + 1));
+    heroNext.addEventListener('click', moveToNext);
   }
 
+  heroTrack.addEventListener('transitionend', () => {
+    // If we are on the clone, reset instantly to the real first slide.
+    if (currentSlide === realSlides) {
+      currentSlide = 0;
+      applyTransform(currentSlide, false);
+    }
+    isAnimating = false;
+  });
+
   setInterval(() => {
-    moveToSlide(currentSlide + 1);
+    moveToNext();
   }, 5000);
 }
 
