@@ -362,6 +362,12 @@ ul { list-style: none; }
   .nav-links, .nav-actions { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 68px; left: 0; right: 0; background: rgba(6,4,15,0.98); backdrop-filter: blur(20px); padding: 24px; gap: 18px; border-bottom: 1px solid rgba(124,58,237,0.15); z-index: 999; }
   .hamburger { display: flex; }
+  .hero { min-height: 86vh; }
+  .hero-panel { min-height: 86vh; }
+  .hero-slide-image, .hero-slide-fibra {
+    background-size: contain;
+    background-position: center;
+  }
   .hero-right { display: none; }
   .hero-controls { bottom: 10px; }
   .planes-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto 40px; }

@@ -19,65 +19,72 @@ const heroTrack = document.getElementById('heroTrack');
 const heroPrev = document.getElementById('heroPrev');
 const heroNext = document.getElementById('heroNext');
 if (heroTrack && heroTrack.children.length > 1) {
-  // Infinite loop without visible jump:
-  // append a clone of the first slide and reset position after reaching it.
-  const firstClone = heroTrack.children[0].cloneNode(true);
+  // Infinite loop using clones at both ends (no visible jump on mobile/desktop).
+  const originalSlides = Array.from(heroTrack.children);
+  const totalRealSlides = originalSlides.length;
+  const firstClone = originalSlides[0].cloneNode(true);
+  const lastClone = originalSlides[totalRealSlides - 1].cloneNode(true);
+
+  heroTrack.insertBefore(lastClone, heroTrack.firstChild);
   heroTrack.appendChild(firstClone);
 
-  let currentSlide = 0;
-  const realSlides = heroTrack.children.length - 1;
+  let currentSlide = 1; // Start on first real slide (after prepended clone)
   let isAnimating = false;
+  let autoTimer = null;
 
   const applyTransform = (index, withTransition = true) => {
     heroTrack.style.transition = withTransition ? 'transform 0.8s ease' : 'none';
     heroTrack.style.transform = `translateX(-${index * 100}%)`;
   };
 
-  const moveToNext = () => {
+  const moveTo = (index) => {
     if (isAnimating) return;
     isAnimating = true;
-    currentSlide += 1;
+    currentSlide = index;
     applyTransform(currentSlide, true);
   };
 
-  const moveToPrev = () => {
-    if (isAnimating) return;
-    isAnimating = true;
-    if (currentSlide === 0) {
-      // Jump to cloned-end position without transition, then animate one step back.
-      currentSlide = realSlides;
-      applyTransform(currentSlide, false);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          currentSlide -= 1;
-          applyTransform(currentSlide, true);
-        });
-      });
-      return;
-    }
-    currentSlide -= 1;
-    applyTransform(currentSlide, true);
+  const moveToNext = () => moveTo(currentSlide + 1);
+  const moveToPrev = () => moveTo(currentSlide - 1);
+
+  const startAuto = () => {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(moveToNext, 5000);
   };
+
+  const restartAuto = () => startAuto();
+
+  // Initial position on first real slide
+  applyTransform(currentSlide, false);
 
   if (heroPrev) {
-    heroPrev.addEventListener('click', moveToPrev);
+    heroPrev.addEventListener('click', () => {
+      moveToPrev();
+      restartAuto();
+    });
   }
   if (heroNext) {
-    heroNext.addEventListener('click', moveToNext);
+    heroNext.addEventListener('click', () => {
+      moveToNext();
+      restartAuto();
+    });
   }
 
   heroTrack.addEventListener('transitionend', () => {
-    // If we are on the clone, reset instantly to the real first slide.
-    if (currentSlide === realSlides) {
-      currentSlide = 0;
+    // If we reached end clone, snap to first real slide.
+    if (currentSlide === totalRealSlides + 1) {
+      currentSlide = 1;
+      applyTransform(currentSlide, false);
+    }
+    // If we reached start clone, snap to last real slide.
+    if (currentSlide === 0) {
+      currentSlide = totalRealSlides;
       applyTransform(currentSlide, false);
     }
     isAnimating = false;
   });
 
-  setInterval(() => {
-    moveToNext();
-  }, 5000);
+  startAuto();
 }
 
 // ===== FORMULARIO DE PAGO =====
