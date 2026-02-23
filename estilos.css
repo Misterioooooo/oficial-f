@@ -186,6 +186,32 @@ ul { list-style: none; }
 .elec-icon { width: 56px; height: 56px; background: rgba(124,58,237,0.1); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #c084fc; margin-bottom: 16px; }
 .elec-card h4 { font-weight: 800; margin-bottom: 8px; }
 .elec-card p { color: var(--muted); font-size: 0.86rem; line-height: 1.6; }
+.elec-media {
+  position: relative;
+  min-height: 220px;
+  padding: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+}
+.elec-media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5,7,25,0.18) 0%, rgba(5,7,25,0.82) 68%, rgba(5,7,25,0.94) 100%);
+}
+.elec-media h4, .elec-media p {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+.elec-tv { background-image: url('imagenes/Reparacin_de_televisores.png'); }
+.elec-parlantes { background-image: url('imagenes/hqdefault.jpg'); }
+.elec-radios { background-image: url('imagenes/OIP (1).webp'); }
+.elec-otros { background-image: url('imagenes/1000_F_732979141_a44sDIYggYygA3uk9EnUD9PruPQR3Uzf.jpg'); }
 .elec-cta { background: rgba(124,58,237,0.06); border: 1px solid rgba(124,58,237,0.2); border-radius: var(--r); padding: 28px 32px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .elec-cta i { font-size: 2rem; color: #c084fc; flex-shrink: 0; }
 .elec-cta p { flex: 1; color: var(--muted); font-size: 0.95rem; }
@@ -284,4 +310,14 @@ ul { list-style: none; }
   .fecha-row { grid-template-columns: 1fr; }
 }
 .nav-logo-top .logo-img { width: 54px; height: 54px; }
+
+
+.pago-note-title { display: block; width: 100%; margin-top: 4px; font-size: 0.78rem; font-weight: 600; color: #fda4af; }
+.metodo-info { display: none; margin-top: 10px; padding: 12px; border-radius: 12px; border: 1px solid rgba(124,58,237,0.28); background: rgba(124,58,237,0.08); }
+.metodo-info.show { display: block; }
+.metodo-info p { margin: 0; color: var(--text); font-size: 0.86rem; line-height: 1.5; }
+.metodo-qr { display: block; width: 100%; max-width: 220px; margin-top: 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); }
+
+
+.stream-logo { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block; }
 

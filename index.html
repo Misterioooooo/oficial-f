@@ -14,7 +14,7 @@
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <div class="nav-logo nav-logo-top">
-        <img src="imagenes/WhatsApp Image 2026-02-21 at 22.16.03.jpeg" alt="Infinit Internet" class="logo-img"/>
+        <img src="imagenes/WhatsApp Image 2026-02-22 at 13.16.30.jpeg" alt="Infinit Internet" class="logo-img"/>
       </div>
       <ul class="nav-links" id="navLinks">
         <li><a href="#inicio">Inicio</a></li>
@@ -69,7 +69,7 @@
     </div>
     <div class="hero-right">
       <div class="logo-display">
-        <img src="imagenes/WhatsApp Image 2026-02-21 at 22.16.03.jpeg" alt="Flores" class="hero-logo-img"/>
+        <img src="imagenes/WhatsApp Image 2026-02-22 at 13.16.30.jpeg" alt="Flores" class="hero-logo-img"/>
         <div class="logo-ring r1"></div>
         <div class="logo-ring r2"></div>
         <div class="logo-ring r3"></div>
@@ -180,17 +180,17 @@
         <p>Todo el entretenimiento que necesitas al mejor precio</p>
       </div>      <div class="stream-grid">
         <div class="stream-card featured">
-          <div class="stream-icon"><i class="fas fa-satellite-dish"></i></div>
+          <div class="stream-icon"><img src="imagenes/512x512bb.jpg" alt="Smart IPTV PRO" class="stream-logo"/></div>
           <div class="stream-tag">Smart IPTV</div>
-          <h3>Smart IPTV</h3>
+          <h3>Smart IPTV PRO</h3>
           <p>Más de <strong>2,000 canales</strong> en vivo + más de <strong>30,000 películas y series</strong></p>
           <div class="stream-price"><span class="sp-big">Bs. 15</span><span class="sp-per">/ mes · 1 dispositivo</span></div>
           <a href="https://wa.me/59167236144?text=Hola,%20quiero%20activar%20Smart%20IPTV%20a%20Bs.15" target="_blank" class="btn-plan">Activar ahora</a>
         </div>
         <div class="stream-card">
-          <div class="stream-icon magis-ic"><i class="fas fa-film"></i></div>
+          <div class="stream-icon magis-ic"><img src="imagenes/MAGICALIDAD.png" alt="MAGIS TV" class="stream-logo"/></div>
           <div class="stream-tag">Pago único</div>
-          <h3>MAGIS TV</h3>
+          <h3>MAGIS TV GRATIS</h3>
           <p>Más de <strong>1,000 películas y series</strong>. Acceso de por vida con un solo pago.</p>
           <div class="stream-price"><span class="sp-big">Bs. 70</span><span class="sp-per">/ pago único</span></div>
           <a href="https://wa.me/59167236144?text=Hola,%20quiero%20MAGIS%20TV%20a%20Bs.70" target="_blank" class="btn-plan">Obtener ahora</a>
@@ -297,23 +297,19 @@
         <p>Reparamos televisores, radios, parlantes y todo equipo electrónico</p>
       </div>
       <div class="elec-grid">
-        <div class="elec-card">
-          <div class="elec-icon"><i class="fas fa-tv"></i></div>
+        <div class="elec-card elec-media elec-tv">
           <h4>Televisores</h4>
           <p>Reparación de Smart TV, LCD, LED y pantallas de todas las marcas.</p>
         </div>
-        <div class="elec-card">
-          <div class="elec-icon"><i class="fas fa-volume-up"></i></div>
+        <div class="elec-card elec-media elec-parlantes">
           <h4>Parlantes & Audio</h4>
           <p>Reparación de parlantes, amplificadores, equipos de sonido y más.</p>
         </div>
-        <div class="elec-card">
-          <div class="elec-icon"><i class="fas fa-broadcast-tower"></i></div>
+        <div class="elec-card elec-media elec-radios">
           <h4>Radios</h4>
           <p>Servicio técnico para radios analógicas y digitales de todo tipo.</p>
         </div>
-        <div class="elec-card">
-          <div class="elec-icon"><i class="fas fa-plug"></i></div>
+        <div class="elec-card elec-media elec-otros">
           <h4>Otros equipos</h4>
           <p>Cualquier equipo electrónico del hogar. ¡Consulta sin compromiso!</p>
         </div>
@@ -336,13 +332,16 @@
         <h2>Paga tu <span class="gradient-text">servicio</span></h2>
         <p>¿Ya eres cliente? Realiza tu pago de forma rápida y segura</p>
       </div>
-      <div class="pago-grid">
-        <div class="pago-form-wrap">
-          <h3><i class="fas fa-file-invoice"></i> Formulario de pago</h3>
+      <div class="pago-grid">        <div class="pago-form-wrap">
+          <h3><i class="fas fa-file-invoice"></i> Formulario de pago <span class="pago-note-title">No olvides enviar tu comprobante</span></h3>
           <form class="pago-form" id="pagoForm" onsubmit="enviarPago(event)">
             <div class="form-grp">
               <label>Nombre completo</label>
               <input type="text" id="pNombre" placeholder="Tu nombre completo" required/>
+            </div>
+            <div class="form-grp">
+              <label>Número de carnet de identidad</label>
+              <input type="text" id="pCarnet" placeholder="Ejemplo: 12345678" required/>
             </div>
             <div class="form-grp">
               <label>Servicio a pagar</label>
@@ -388,8 +387,9 @@
                 <label class="met-opt"><input type="radio" name="metodo" value="Tigo Money" required/><span><i class="fas fa-mobile-alt"></i> Tigo Money</span></label>
                 <label class="met-opt"><input type="radio" name="metodo" value="QR Bancario"/><span><i class="fas fa-qrcode"></i> QR Bancario</span></label>
                 <label class="met-opt"><input type="radio" name="metodo" value="Efectivo"/><span><i class="fas fa-money-bill"></i> Efectivo</span></label>
-                <label class="met-opt"><input type="radio" name="metodo" value="Transferencia"/><span><i class="fas fa-university"></i> Transferencia</span></label>
+                <label class="met-opt"><input type="radio" name="metodo" value="Transferencia bancaria"/><span><i class="fas fa-university"></i> Transferencia bancaria</span></label>
               </div>
+              <div id="metodoInfo" class="metodo-info"></div>
             </div>
             <div class="form-grp">
               <label>Comprobante / Observación</label>
@@ -461,7 +461,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="nav-logo">
-          <img src="imagenes/WhatsApp Image 2026-02-21 at 22.16.03.jpeg" alt="Flores" class="logo-img"/>
+          <img src="imagenes/WhatsApp Image 2026-02-22 at 13.16.30.jpeg" alt="Flores" class="logo-img"/>
           <span class="logo-text">Flores</span>
         </div>
         <p>Internet fibra óptica, canales, streaming, productos tecnológicos y suplementos en Bolivia.</p>
@@ -514,6 +514,9 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
 
 
 
