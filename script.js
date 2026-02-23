@@ -14,6 +14,30 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => navLinks.classList.remove('open'));
 });
 
+// ===== HERO SLIDES =====
+const heroTrack = document.getElementById('heroTrack');
+const heroPrev = document.getElementById('heroPrev');
+const heroNext = document.getElementById('heroNext');
+if (heroTrack && heroTrack.children.length > 1) {
+  let currentSlide = 0;
+  const totalSlides = heroTrack.children.length;
+  const moveToSlide = (index) => {
+    currentSlide = (index + totalSlides) % totalSlides;
+    heroTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+  };
+
+  if (heroPrev) {
+    heroPrev.addEventListener('click', () => moveToSlide(currentSlide - 1));
+  }
+  if (heroNext) {
+    heroNext.addEventListener('click', () => moveToSlide(currentSlide + 1));
+  }
+
+  setInterval(() => {
+    moveToSlide(currentSlide + 1);
+  }, 5000);
+}
+
 // ===== FORMULARIO DE PAGO =====
 const metodoInfo = document.getElementById('metodoInfo');
 const metodoRadios = document.querySelectorAll('input[name="metodo"]');

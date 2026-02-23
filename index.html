@@ -40,45 +40,60 @@
   <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="hero-bg">
-      <div class="orb orb1"></div>
-      <div class="orb orb2"></div>
-      <div class="orb orb3"></div>
+      <div class="hero-carousel">
+        <div class="hero-track" id="heroTrack">
+          <div class="hero-slide hero-slide-text">
+            <div class="hero-panel">
+              <div class="hero-content">
+                <div class="hero-badge">
+                  <span class="badge-dot"></span> Servicio disponible en Bolivia
+                </div>
+                <h1 class="hero-title">
+                  Conecta tu mundo<br/>
+                  <span class="gradient-text">sin límites</span>
+                </h1>
+                <p class="hero-sub">Internet fibra óptica, canales de TV, streaming, productos tecnológicos y suplementos. Todo en un solo lugar.</p>
+                <div class="hero-btns">
+                  <a href="#internet" class="btn-primary large">Ver planes de internet</a>
+                  <a href="https://wa.me/59167236144?text=Hola,%20quiero%20información%20sobre%20sus%20servicios" target="_blank" class="btn-outline large">
+                    <i class="fab fa-whatsapp"></i> Consultar ahora
+                  </a>
+                </div>
+                <div class="hero-stats">
+                  <div class="stat-item"><span class="stat-n">500+</span><span class="stat-l">Productos</span></div>
+                  <div class="stat-div"></div>
+                  <div class="stat-item"><span class="stat-n">2000+</span><span class="stat-l">Canales</span></div>
+                  <div class="stat-div"></div>
+                  <div class="stat-item"><span class="stat-n">24/7</span><span class="stat-l">Soporte</span></div>
+                </div>
+              </div>
+              <div class="hero-right">
+                <div class="logo-display">
+                  <img src="imagenes/WhatsApp Image 2026-02-22 at 13.16.30.jpeg" alt="Flores" class="hero-logo-img"/>
+                  <div class="logo-ring r1"></div>
+                  <div class="logo-ring r2"></div>
+                  <div class="logo-ring r3"></div>
+                </div>
+                <div class="floating-cards">
+                  <div class="fcard fcard1"><i class="fas fa-wifi"></i><span>Fibra Óptica</span></div>
+                  <div class="fcard fcard2"><i class="fas fa-tv"></i><span>2000+ Canales</span></div>
+                  <div class="fcard fcard3"><i class="fas fa-bolt"></i><span>Alta Velocidad</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-slide hero-slide-image"></div>
+          <div class="hero-slide hero-slide-fibra"></div>
+        </div>
+      </div>
     </div>
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot"></span> Servicio disponible en Bolivia
-      </div>
-      <h1 class="hero-title">
-        Conecta tu mundo<br/>
-        <span class="gradient-text">sin límites</span>
-      </h1>
-      <p class="hero-sub">Internet fibra óptica, canales de TV, streaming, productos tecnológicos y suplementos. Todo en un solo lugar.</p>
-      <div class="hero-btns">
-        <a href="#internet" class="btn-primary large">Ver planes de internet</a>
-        <a href="https://wa.me/59167236144?text=Hola,%20quiero%20información%20sobre%20sus%20servicios" target="_blank" class="btn-outline large">
-          <i class="fab fa-whatsapp"></i> Consultar ahora
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-item"><span class="stat-n">500+</span><span class="stat-l">Productos</span></div>
-        <div class="stat-div"></div>
-        <div class="stat-item"><span class="stat-n">2000+</span><span class="stat-l">Canales</span></div>
-        <div class="stat-div"></div>
-        <div class="stat-item"><span class="stat-n">24/7</span><span class="stat-l">Soporte</span></div>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="logo-display">
-        <img src="imagenes/WhatsApp Image 2026-02-22 at 13.16.30.jpeg" alt="Flores" class="hero-logo-img"/>
-        <div class="logo-ring r1"></div>
-        <div class="logo-ring r2"></div>
-        <div class="logo-ring r3"></div>
-      </div>
-      <div class="floating-cards">
-        <div class="fcard fcard1"><i class="fas fa-wifi"></i><span>Fibra Óptica</span></div>
-        <div class="fcard fcard2"><i class="fas fa-tv"></i><span>2000+ Canales</span></div>
-        <div class="fcard fcard3"><i class="fas fa-bolt"></i><span>Alta Velocidad</span></div>
-      </div>
+    <div class="hero-controls">
+      <button class="hero-arrow" id="heroPrev" aria-label="Slide anterior">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="hero-arrow" id="heroNext" aria-label="Siguiente slide">
+        <i class="fas fa-chevron-right"></i>
+      </button>
     </div>
   </section>
 
@@ -203,6 +218,14 @@
           <div class="stream-price"><span class="sp-big">Bs. 30</span><span class="sp-per">/ mes · 1 perfil</span></div>
           <a href="https://wa.me/59167236144?text=Hola,%20quiero%20Netflix%20a%20Bs.30" target="_blank" class="btn-plan">Suscribirse</a>
         </div>
+        <div class="stream-card">
+          <div class="stream-icon"><img src="imagenes/4935c5232684beb220190130202528000000.jpeg" alt="Satélite Amazonas 61W" class="stream-logo"/></div>
+          <div class="stream-tag">1 dispositivo</div>
+          <h3>Satélite Amazonas 61°W</h3>
+          <p>Aproximadamente <strong>300 canales</strong>, solo internacionales.</p>
+          <div class="stream-price"><span class="sp-big">Bs. 30</span><span class="sp-per">/ mes · 1 dispositivo</span></div>
+          <a href="https://wa.me/59167236144?text=Hola,%20quiero%20el%20plan%20Sat%C3%A9lite%20Amazonas%2061W%20de%20Bs.30%20al%20mes" target="_blank" class="btn-plan">Contratar</a>
+        </div>
       </div>
     </div>
   </section>
@@ -270,7 +293,9 @@
         <div class="hgw-cat"><i class="fas fa-pills"></i><span>Suplementos</span></div>
         <div class="hgw-cat"><i class="fas fa-spa"></i><span>Cuidado personal</span></div>
         <div class="hgw-cat"><i class="fas fa-coffee"></i><span>Cafés saludables</span></div>
-        <div class="hgw-cat"><i class="fas fa-plus-circle"></i><span>Y mucho más</span></div>
+        <a class="hgw-cat" href="https://www.healthgreenworld.com/?userName=cipriano74" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-plus-circle"></i><span>Y mucho más</span>
+        </a>
       </div>
       <div class="hgw-cta">
         <p>Visita el catálogo oficial de HGW con todos los productos disponibles</p>
