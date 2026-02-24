@@ -90,6 +90,16 @@ if (heroTrack && heroTrack.children.length > 1) {
 // ===== FORMULARIO DE PAGO =====
 const metodoInfo = document.getElementById('metodoInfo');
 const metodoRadios = document.querySelectorAll('input[name="metodo"]');
+const diaSelect = document.getElementById('pDia');
+
+if (diaSelect) {
+  for (let i = 1; i <= 31; i += 1) {
+    const opt = document.createElement('option');
+    opt.value = String(i);
+    opt.textContent = String(i);
+    diaSelect.appendChild(opt);
+  }
+}
 
 function getMetodoDetalle(metodo) {
   switch (metodo) {
