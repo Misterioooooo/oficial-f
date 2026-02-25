@@ -184,6 +184,102 @@ function enviarPago(e) {
     setTimeout(() => formOk.classList.remove('show'), 3000);
   }, 800);
 }
+
+// ===== CHAT API =====
+const chatForm = document.getElementById('chatForm');
+const chatInput = document.getElementById('chatInput');
+const chatMessages = document.getElementById('chatMessages');
+const chatSend = document.getElementById('chatSend');
+const aiFloatBtn = document.getElementById('aiFloatBtn');
+const chatWidget = document.getElementById('chatWidget');
+const chatClose = document.getElementById('chatClose');
+
+function renderChatMessage(texto, rol, extraClass = '') {
+  if (!chatMessages) return null;
+  const msg = document.createElement('div');
+  msg.className = `chat-msg ${rol}${extraClass ? ` ${extraClass}` : ''}`;
+  msg.textContent = texto;
+  chatMessages.appendChild(msg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  return msg;
+}
+
+async function enviarMensajeChat(e) {
+  e.preventDefault();
+  if (!chatInput || !chatSend) return;
+
+  const mensaje = chatInput.value.trim();
+  if (!mensaje) return;
+
+  renderChatMessage(mensaje, 'user');
+  chatInput.value = '';
+  chatInput.focus();
+  chatInput.disabled = true;
+  chatSend.disabled = true;
+
+  const typing = renderChatMessage('Escribiendo...', 'bot', 'typing');
+
+  try {
+    const API_URL =
+      window.location.hostname === '127.0.0.1' ||
+      window.location.hostname === 'localhost'
+        ? 'https://infinity-black-rho.vercel.app/api/chat'
+        : '/api/chat';
+
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: mensaje })
+    });
+
+    const raw = await res.text();
+    let data = {};
+    try {
+      data = raw ? JSON.parse(raw) : {};
+    } catch {
+      const enLocal = ['127.0.0.1', 'localhost'].includes(window.location.hostname);
+      if (enLocal) {
+        throw new Error('El endpoint /api/chat no existe en Live Server. Sube a Vercel o usa un servidor con API.');
+      }
+      throw new Error(`Respuesta inválida del servidor (${res.status}).`);
+    }
+
+    if (!res.ok) {
+      throw new Error(data?.error || 'Error al llamar /api/chat');
+    }
+
+    if (typing) typing.remove();
+    renderChatMessage(data?.reply || 'No se pudo generar respuesta.', 'bot');
+  } catch (error) {
+    if (typing) typing.remove();
+    renderChatMessage(`Error: ${error.message}`, 'bot');
+  } finally {
+    chatInput.disabled = false;
+    chatSend.disabled = false;
+    chatInput.focus();
+  }
+}
+
+if (chatForm) {
+  chatForm.addEventListener('submit', enviarMensajeChat);
+}
+
+function toggleChatWidget(forceOpen = null) {
+  if (!chatWidget) return;
+  const abrir = forceOpen === null ? !chatWidget.classList.contains('open') : forceOpen;
+  chatWidget.classList.toggle('open', abrir);
+  chatWidget.setAttribute('aria-hidden', abrir ? 'false' : 'true');
+  if (abrir && chatInput) chatInput.focus();
+}
+
+if (aiFloatBtn) {
+  aiFloatBtn.addEventListener('click', () => toggleChatWidget());
+}
+
+if (chatClose) {
+  chatClose.addEventListener('click', () => toggleChatWidget(false));
+}
+
 // ===== SCROLL ANIMATIONS =====
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {

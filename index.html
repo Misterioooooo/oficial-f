@@ -69,7 +69,7 @@
               </div>
               <div class="hero-right">
                 <div class="logo-display">
-                  <img src="imagenes/WhatsApp Image 2026-02-22 at 13.16.30.jpeg" alt="Flores" class="hero-logo-img"/>
+                  <img src="imagenes/WhatsApp Image 2026-02-23 at 14.57.51.jpeg" alt="Flores" class="hero-logo-img"/>
                   <div class="logo-ring r1"></div>
                   <div class="logo-ring r2"></div>
                   <div class="logo-ring r3"></div>
@@ -200,7 +200,7 @@
           <h3>Smart IPTV PRO</h3>
           <p>Más de <strong>2,000 canales</strong> en vivo + más de <strong>30,000 películas y series</strong></p>
           <div class="stream-price"><span class="sp-big">Bs. 15</span><span class="sp-per">/ mes · 1 dispositivo</span></div>
-          <a href="https://wa.me/59167236144?text=Hola,%20quiero%20activar%20Smart%20IPTV%20a%20Bs.15" target="_blank" class="btn-plan">Activar demo ahora</a>
+          <a href="https://wa.me/59167236144?text=Hola,%20quiero%20activar%20Smart%20IPTV%20a%20Bs.15" target="_blank" class="btn-plan">Activar ahora</a>
         </div>
         <div class="stream-card">
           <div class="stream-icon magis-ic"><img src="imagenes/magis.png" alt="MAGIS TV" class="stream-logo"/></div>
@@ -223,8 +223,8 @@
           <div class="stream-tag">1 dispositivo</div>
           <h3>Satélite Amazonas 61°W</h3>
           <p>Aproximadamente <strong>300 canales</strong>, solo internacionales.</p>
-          <div class="stream-price"><span class="sp-big">Bs. 40</span><span class="sp-per">/ mes · 1 dispositivo</span></div>
-          <a href="https://wa.me/59167236144?text=Hola,%20quiero%20el%20plan%20Sat%C3%A9lite%20Amazonas%2061W%20de%20Bs.40%20al%20mes" target="_blank" class="btn-plan">Contratar</a>
+          <div class="stream-price"><span class="sp-big">Bs. 30</span><span class="sp-per">/ mes · 1 dispositivo</span></div>
+          <a href="https://wa.me/59167236144?text=Hola,%20quiero%20el%20plan%20Sat%C3%A9lite%20Amazonas%2061W%20de%20Bs.30%20al%20mes" target="_blank" class="btn-plan">Contratar</a>
         </div>
       </div>
     </div>
@@ -386,7 +386,7 @@
               <div class="fecha-row">
                 <select id="pDia" required>
                   <option value="">Día</option>
-                  <!-- Opciones generadas por JS -->
+                  <script>for(let i=1;i<=31;i++) document.write(`<option>${i}</option>`)</script>
                 </select>
                 <select id="pMes" required>
                   <option value="">Mes</option>
@@ -485,7 +485,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="nav-logo">
-          <img src="imagenes/WhatsApp Image 2026-02-22 at 13.16.30.jpeg" alt="Flores" class="logo-img"/>
+          <img src="imagenes/WhatsApp Image 2026-02-23 at 14.57.51.jpeg" alt="Flores" class="logo-img"/>
           <span class="logo-text">Flores</span>
         </div>
         <p>Internet fibra óptica, canales, streaming, productos tecnológicos y suplementos en Bolivia.</p>
@@ -516,7 +516,7 @@
           <li><a href="#electronica">Electrónica & Reparaciones</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+       <div class="footer-col">
         <h4>Cliente</h4>
         <ul>
           <li><a href="#pagos">Pagar servicio</a></li>
@@ -534,6 +534,32 @@
     <i class="fab fa-whatsapp"></i>
     <span class="wa-tip">¡Escríbenos!</span>
   </a>
+  <button type="button" class="ai-float" id="aiFloatBtn" aria-label="Abrir asistente">
+    <i class="fas fa-robot"></i>
+    <span class="ai-tip">Asistente</span>
+  </button>
+
+  <div class="chat-widget" id="chatWidget" aria-hidden="true">
+    <div class="chat-widget-head">
+      <strong><i class="fas fa-robot"></i> Asistente</strong>
+      <button type="button" class="chat-close" id="chatClose" aria-label="Cerrar chat">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="chat-wrap">
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-msg bot">
+          Hola, soy tu asistente. Escribeme tu consulta y te respondere al instante.
+        </div>
+      </div>
+      <form class="chat-form" id="chatForm">
+        <input type="text" id="chatInput" placeholder="Ejemplo: Que plan de internet me recomiendan?" autocomplete="off" required/>
+        <button type="submit" id="chatSend" class="btn-primary">
+          <i class="fas fa-paper-plane"></i> Enviar
+        </button>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
