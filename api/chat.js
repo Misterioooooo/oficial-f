@@ -41,6 +41,9 @@ export default async function handler(req, res) {
     );
 
     const raw = await response.text();
+    console.log("STATUS:", response.status);
+    console.log("TEXT:", raw);
+
     let data = {};
     try {
       data = raw ? JSON.parse(raw) : {};
