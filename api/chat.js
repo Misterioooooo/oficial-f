@@ -19,51 +19,35 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "El mensaje es obligatorio." });
     }
 
-    if (!process.env.GEMINI_API_KEY) {
-      return res.status(500).json({ error: "Falta GEMINI_API_KEY en el servidor." });
+    if (!process.env.GROQ_API_KEY) {
+      return res.status(500).json({ error: "Falta GROQ_API_KEY en el servidor." });
     }
 
-    const response = await fetch(
-       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          contents: [
-            {
-              role: "user",
-              parts: [{ text: userMessage }],
-            },
-          ],
-        }),
-      }
-    );
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${process.env.GROQ_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "llama3-8b-8192",
+        messages: [
+          { role: "system", content: "Eres un asistente profesional de Infinity Internet." },
+          { role: "user", content: userMessage }
+        ]
+      })
+    });
 
-    const raw = await response.text();
-    console.log("STATUS:", response.status);
-    console.log("TEXT:", raw);
-
-    let data = {};
-    try {
-      data = raw ? JSON.parse(raw) : {};
-    } catch {
-      return res
-        .status(502)
-        .json({ error: "Gemini devolvió una respuesta inválida.", raw });
-    }
+    const data = await response.json();
 
     if (!response.ok) {
-      const providerError = data?.error?.message || "Error al consultar Gemini.";
-      return res.status(response.status).json({ error: providerError, debug: data });
+      return res.status(response.status).json({ error: data });
     }
 
-    const reply =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "No se pudo generar respuesta.";
+    const reply = data.choices?.[0]?.message?.content || "No se pudo generar respuesta.";
 
     return res.status(200).json({ reply });
+
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Error en el servidor" });

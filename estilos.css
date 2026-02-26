@@ -94,6 +94,9 @@ ul { list-style: none; }
 .hero-slide-fibra {
   background-image: url('imagenes/ChatGPT Image 23 feb 2026, 14_23_10.png');
 }
+.hero-slide-worldcup {
+  background-image: url('imagenes/WhatsApp Image 2026-02-26 at 11.24.03.jpeg');
+}
 .hero-panel {
   min-height: 88vh;
   max-width: 1280px;
@@ -361,6 +364,7 @@ ul { list-style: none; }
   .hero-panel { min-height: 76vh; flex-direction: column; text-align: center; padding-top: 90px; }
   .hero-slide-image { background-image: url('imagenes/ChatGPT Image 23 feb 2026, 14_22_47.png'); }
   .hero-slide-fibra { background-image: url('imagenes/ChatGPT Image 23 feb 2026, 14_23_06.png'); }
+  .hero-slide-worldcup { background-image: url('imagenes/WhatsApp Image 2026-02-26 at 11.24.03.jpeg'); }
   .hero-sub { margin: 0 auto 36px; }
   .hero-btns { justify-content: center; }
   .hero-stats { justify-content: center; }
@@ -374,7 +378,7 @@ ul { list-style: none; }
   .hamburger { display: flex; }
   .hero { min-height: 86vh; }
   .hero-panel { min-height: 86vh; }
-  .hero-slide-image, .hero-slide-fibra {
+  .hero-slide-image, .hero-slide-fibra, .hero-slide-worldcup {
     background-size: contain;
     background-position: center;
   }
