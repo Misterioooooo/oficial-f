@@ -41,7 +41,9 @@ export default async function handler(req, res) {
     const data = await response.json();
 
     if (!response.ok) {
-      return res.status(response.status).json({ error: data });
+      return res.status(response.status).json({
+        error: data.error?.message || JSON.stringify(data)
+      });
     }
 
     const reply = data.choices?.[0]?.message?.content || "No se pudo generar respuesta.";
