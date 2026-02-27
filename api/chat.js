@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         "Authorization": `Bearer ${process.env.GROQ_API_KEY}`
       },
       body: JSON.stringify({
-        model: "llama3-8b-8192",
+        model: "llama-3.1-8b-instant",
         messages: [
           { role: "system", content: "Eres un asistente profesional de Infinity Internet." },
           { role: "user", content: userMessage }
@@ -55,3 +55,4 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "Error en el servidor" });
   }
 }
+
