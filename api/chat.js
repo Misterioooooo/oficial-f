@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         model: "llama-3.1-8b-instant",
         messages: [
-          { role: "system", content: "Eres un asistente profesional de Infinity Internet." },
+          { role: "system", content: `Eres el asistente oficial de Infinity Internet en Bolivia.\nResponde de forma clara, profesional y breve.\nNo inventes informacion.\nSolo ofrece servicios reales de la empresa.\nTambien ofrecemos instalacion de camaras de seguridad.\nPara cotizaciones de camaras, indica el numero 67236144.\nSi no sabes algo, indica que un asesor humano ayudara.` },
           { role: "user", content: userMessage }
         ]
       })
@@ -55,4 +55,5 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "Error en el servidor" });
   }
 }
+
 
