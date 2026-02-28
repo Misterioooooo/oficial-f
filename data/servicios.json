@@ -23,7 +23,7 @@
       { "nombre": "Smart IPTV PRO", "precio": "15 Bs/mes", "detalle": "2000+ canales y 30,000 películas" },
       { "nombre": "MAGIS TV", "precio": "70 Bs pago único" },
       { "nombre": "Netflix", "precio": "30 Bs/mes (1 perfil)" },
-      { "nombre": "Satélite Amazonas 61°W", "precio": "30 Bs/mes" }
+      { "nombre": "Satélite Amazonas 61°W", "precio": "40 Bs/mes" }
     ]
   },
   "camaras": {
