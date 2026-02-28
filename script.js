@@ -32,9 +32,12 @@ if (heroTrack && heroTrack.children.length > 1) {
   let isAnimating = false;
   let autoTimer = null;
 
+  const getSlideWidth = () => heroTrack.parentElement?.clientWidth || window.innerWidth;
+
   const applyTransform = (index, withTransition = true) => {
+    const slideWidth = getSlideWidth();
     heroTrack.style.transition = withTransition ? 'transform 0.8s ease' : 'none';
-    heroTrack.style.transform = `translateX(-${index * 100}%)`;
+    heroTrack.style.transform = `translate3d(-${index * slideWidth}px, 0, 0)`;
   };
 
   const moveTo = (index) => {
@@ -82,6 +85,10 @@ if (heroTrack && heroTrack.children.length > 1) {
       applyTransform(currentSlide, false);
     }
     isAnimating = false;
+  });
+
+  window.addEventListener('resize', () => {
+    applyTransform(currentSlide, false);
   });
 
   startAuto();
