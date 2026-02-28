@@ -1,3 +1,41 @@
+import servicios from "../data/servicios.json";
+
+function obtenerContexto(pregunta) {
+  const texto = String(pregunta || "").toLowerCase();
+  const serializar = (valor) =>
+    valor ? JSON.stringify(valor, null, 2) : null;
+
+  if (texto.includes("internet") || texto.includes("plan") || texto.includes("mbps") || texto.includes("fibra")) {
+    return serializar(servicios.internet);
+  }
+
+  if (texto.includes("canal") || texto.includes("iptv") || texto.includes("netflix") || texto.includes("magis") || texto.includes("stream")) {
+    return serializar(servicios.streaming);
+  }
+
+  if (texto.includes("camara") || texto.includes("camaras") || texto.includes("cctv")) {
+    return serializar(servicios.camaras);
+  }
+
+  if (texto.includes("repara") || texto.includes("televisor") || texto.includes("parlante") || texto.includes("radio") || texto.includes("electronico")) {
+    return serializar(servicios.reparaciones);
+  }
+
+  if (texto.includes("hgw") || texto.includes("suplemento") || texto.includes("salud")) {
+    return serializar(servicios.hgw);
+  }
+
+  if (texto.includes("cafini") || texto.includes("tv box") || texto.includes("producto") || texto.includes("tecnologia")) {
+    return serializar(servicios.productos_tecnologia);
+  }
+
+  if (texto.includes("soporte") || texto.includes("wifi") || texto.includes("tecnico")) {
+    return serializar(servicios.empresa);
+  }
+
+  return serializar(servicios.empresa);
+}
+
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
@@ -23,6 +61,8 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: "Falta GROQ_API_KEY en el servidor." });
     }
 
+    const contexto = obtenerContexto(userMessage);
+
     const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -32,9 +72,19 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         model: "llama-3.1-8b-instant",
         messages: [
-          { role: "system", content: `Eres el asistente oficial de Infinity Internet en Bolivia.\nResponde de forma clara, profesional y breve.\nNo inventes informacion.\nSolo ofrece servicios reales de la empresa.\nTambien ofrecemos instalacion de camaras de seguridad.\nPara cotizaciones de camaras, indica el numero 67236144.\nSi no sabes algo, indica que un asesor humano ayudara.` },
+          {
+            role: "system",
+            content: `Eres el asistente oficial de Flores en Bolivia.
+Usa unicamente la informacion proporcionada.
+No inventes servicios.
+Si no hay informacion suficiente, indica que un asesor humano puede ayudar al 67236144.
+
+Informacion oficial:
+${contexto}`
+          },
           { role: "user", content: userMessage }
-        ]
+        ],
+        temperature: 0.3
       })
     });
 

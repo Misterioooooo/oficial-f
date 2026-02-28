@@ -1,0 +1,42 @@
+{
+  "empresa": {
+    "nombre": "Flores",
+    "ubicacion": "Bolivia",
+    "telefono_principal": "67236144",
+    "horario": "Lunes a Sábado de 8am a 9pm"
+  },
+  "internet": {
+    "instalacion": {
+      "precio": "300 Bs",
+      "detalle": "Pago único. Requiere fotocopia de carnet."
+    },
+    "planes": [
+      { "nombre": "7 Mbps", "precio": "95 Bs/mes" },
+      { "nombre": "10 Mbps", "precio": "120 Bs/mes" },
+      { "nombre": "20 Mbps", "precio": "150 Bs/mes" },
+      { "nombre": "20 Mbps + Canales", "precio": "160 Bs/mes" },
+      { "nombre": "40 Mbps + Canales", "precio": "200 Bs/mes" }
+    ]
+  },
+  "streaming": {
+    "productos": [
+      { "nombre": "Smart IPTV PRO", "precio": "15 Bs/mes", "detalle": "2000+ canales y 30,000 películas" },
+      { "nombre": "MAGIS TV", "precio": "70 Bs pago único" },
+      { "nombre": "Netflix", "precio": "30 Bs/mes (1 perfil)" },
+      { "nombre": "Satélite Amazonas 61°W", "precio": "30 Bs/mes" }
+    ]
+  },
+  "camaras": {
+    "descripcion": "Instalación de cámaras de seguridad para hogares y negocios con DVR/NVR y monitoreo en celular."
+  },
+  "reparaciones": {
+    "descripcion": "Reparación de televisores, parlantes, radios y equipos electrónicos. Diagnóstico sin costo."
+  },
+  "productos_tecnologia": {
+    "marcas": ["Cafini", "Lidimi", "Sandi", "Xiny"],
+    "descripcion": "TV Box Android 4K, accesorios y equipos tecnológicos."
+  },
+  "hgw": {
+    "descripcion": "Productos Health Green World con 20% de descuento."
+  }
+}
