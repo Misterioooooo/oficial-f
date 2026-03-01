@@ -1,7 +1,7 @@
 {
   "empresa": {
     "nombre": "INFINIT FLORES",
-    "ubicacion": "Bolivia Caracollo serca ala fatecipol ",
+    "ubicacion": "Caracollo, Oruro, Bolivia. Final Av. Bernal, una cuadra antes de llegar ala Fatecipol edificio de 3 pisos plena esquina .",
     "telefono_principal": "67236144",
     "horario": "Lunes a Sábado de 8am a 9pm"
   },
@@ -11,11 +11,31 @@
       "detalle": "Pago único. Requiere fotocopia de carnet."
     },
     "planes": [
-      { "nombre": "7 Mbps", "precio": "95 Bs/mes" },
-      { "nombre": "10 Mbps", "precio": "120 Bs/mes" },
-      { "nombre": "20 Mbps", "precio": "150 Bs/mes" },
-      { "nombre": "20 Mbps + Canales", "precio": "160 Bs/mes" },
-      { "nombre": "40 Mbps + Canales", "precio": "200 Bs/mes" }
+      {
+        "nombre": "7 Mbps",
+        "precio": "95 Bs/mes",
+        "ideal_para": "2-3 personas, uso básico, redes sociales y navegación"
+      },
+      {
+        "nombre": "10 Mbps",
+        "precio": "120 Bs/mes",
+        "ideal_para": "4-5 personas, streaming y uso diario"
+      },
+      {
+        "nombre": "20 Mbps",
+        "precio": "150 Bs/mes",
+        "ideal_para": "6-7 personas, streaming en HD y múltiples dispositivos"
+      },
+      {
+        "nombre": "20 Mbps + Canales",
+        "precio": "160 Bs/mes",
+        "ideal_para": "Familias que quieren internet y televisión"
+      },
+      {
+        "nombre": "40 Mbps + Canales",
+        "precio": "200 Bs/mes",
+        "ideal_para": "Casas grandes, streaming 4K y muchos dispositivos"
+      }
     ]
   },
   "streaming": {
@@ -27,8 +47,15 @@
     ]
   },
   "camaras": {
-    "descripcion": "Instalación de cámaras de seguridad para hogares y negocios con DVR/NVR y monitoreo en celular."
+    "descripcion": "Instalación de cámaras de seguridad para hogares y negocios con DVR/NVR y monitoreo en celular.",
+    "cotizacion": "El precio depende de la cantidad de cámaras y tamaño del lugar."
   },
+  "faq": {
+    "corte_servicio": "El servicio puede cortarse si no se paga antes del día 5 de cada mes.",
+    "soporte": "El soporte técnico está disponible de lunes a sábado de 8am a 9pm.",
+    "tiempo_instalacion": "La instalación se realiza previa coordinación por WhatsApp."
+  },
+  "ubicacion": "Caracollo, Oruro, Bolivia. Final Av. Bernal, una cuadra antes de Fatecipol.",
   "reparaciones": {
     "descripcion": "Reparación de televisores, parlantes, radios y equipos electrónicos. Diagnóstico sin costo."
   },
