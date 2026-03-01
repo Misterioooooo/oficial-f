@@ -5,7 +5,14 @@ function obtenerContexto(pregunta) {
   const serializar = (valor) =>
     valor ? JSON.stringify(valor, null, 2) : null;
 
-  if (texto.includes("internet") || texto.includes("plan") || texto.includes("mbps") || texto.includes("fibra")) {
+  if (
+    texto.includes("internet") ||
+    texto.includes("wifi") ||
+    texto.includes("plan") ||
+    texto.includes("mbps") ||
+    texto.includes("fibra") ||
+    texto.includes("instalacion")
+  ) {
     return serializar(servicios.internet);
   }
 
@@ -27,10 +34,6 @@ function obtenerContexto(pregunta) {
 
   if (texto.includes("cafini") || texto.includes("tv box") || texto.includes("producto") || texto.includes("tecnologia")) {
     return serializar(servicios.productos_tecnologia);
-  }
-
-  if (texto.includes("soporte") || texto.includes("wifi") || texto.includes("tecnico")) {
-    return serializar(servicios.empresa);
   }
 
   return serializar(servicios.empresa);

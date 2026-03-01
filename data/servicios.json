@@ -55,7 +55,9 @@
     "soporte": "El soporte técnico está disponible de lunes a sábado de 8am a 9pm.",
     "tiempo_instalacion": "La instalación se realiza previa coordinación por WhatsApp."
   },
-  "ubicacion": "Caracollo, Oruro, Bolivia. Final Av. Bernal, una cuadra antes de Fatecipol.",
+  "requisitos": {
+    "velocidad_recomendada": "Mínimo 10 Mbps. Para mejor estabilidad se recomienda 15 Mbps o más."
+  },
   "reparaciones": {
     "descripcion": "Reparación de televisores, parlantes, radios y equipos electrónicos. Diagnóstico sin costo."
   },
